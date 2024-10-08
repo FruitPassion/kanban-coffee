@@ -1,0 +1,55 @@
+{% extends "common/base.html" %}
+{% block body %}
+    <div class="column is-4 is-offset-4">
+        <h3 class="title">Register</h3>
+        <div class="box">
+            <form method="post" action="/signup">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large"
+                               type="email"
+                               name="email"
+                               placeholder="Email"
+                               autofocus="">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large"
+                               type="text"
+                               name="username"
+                               placeholder="Username"
+                               autofocus="">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large"
+                               type="text"
+                               name="firstname"
+                               placeholder="Firstname"
+                               autofocus="">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large"
+                               type="text"
+                               name="lasname"
+                               placeholder="Lastname"
+                               autofocus="">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large"
+                               type="password"
+                               name="password"
+                               placeholder="Password">
+                    </div>
+                </div>
+                <button class="button is-block is-info is-large is-fullwidth">Register</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

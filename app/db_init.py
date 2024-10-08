@@ -7,4 +7,3 @@ with app.app_context():
     from model.shared_model import Base, db
 
     db.create_all()
-    Base.metadata.create_all(bind=db.engine)

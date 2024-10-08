@@ -9,8 +9,10 @@ manage_requirements.checking()
 
 def create_app(config=None):
     from flask import Flask
+    from flask_login import LoginManager
     from flask_session import Session
     from flask_wtf import CSRFProtect
+    from model.shared_model import User
     from utils import app_utils, manage_controller
     from utils.manage_config import check_config, read_config
 
@@ -55,6 +57,14 @@ def create_app(config=None):
     db.init_app(app)
 
     Session(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.login"
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     # Redefine the url_for function to add a timestamp
     app_utils.rewrite_url(app)
